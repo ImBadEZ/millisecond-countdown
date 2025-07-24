@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Milliseconds Countdown</title>
+    <style>
+      body { font-family: monospace; font-size: 3em; text-align: center; margin-top: 20%; }
+    </style>
+  </head>
+  <body>
+    <header>Countdown
+    <div id="countdown"></div>
+
+    <script>
+      const target = new Date("2025-07-28T20:00:00"); // local time
+      const display = document.getElementById("countdown");
+
+      function update() {
+        const now = Date.now();
+        const diff = target - now;
+
+        display.textContent = diff > 0 ? diff : "0";
+        requestAnimationFrame(update);
+      }
+
+      update();
+    </script>
+  </body>
+</html>
